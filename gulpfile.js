@@ -10,6 +10,9 @@ const babel = require("gulp-babel");
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 const imgCompress  = require('imagemin-jpeg-recompress');
+const njk = require('gulp-nunjucks-render');
+const prettify = require('gulp-html-prettify');
+
 
 
 function scripts(){
@@ -41,10 +44,21 @@ function styles(){
     .pipe(browserSync.stream())
 }
 
+function nunjucks(){
+    return src('src/templates/**/*.html')
+    .pipe(njk())
+    .pipe(prettify({
+        indent_size : 4 // размер отступа - 4 пробела
+    }))
+    .pipe(dest('src/pages'))
+    .pipe(browserSync.stream());
+}
+
 function browsersync(){
     browserSync.init({
         server: {
-            baseDir: 'src/'
+            baseDir: 'src/',
+            index: 'pages/index.html'
         }
     });
 }
@@ -52,7 +66,7 @@ function browsersync(){
 function watching(){
     watch(['src/scss/style.scss'], styles)
     watch(['src/js/script.js'], scripts)
-    watch(['src/*.html']).on('change', browserSync.reload)
+    watch(['src/templates/*.html', 'src/layout/*.html', 'src/components/*.html'], nunjucks).on('change', browserSync.reload)
 }
 
 function cleanDist() {
@@ -80,7 +94,7 @@ function building(){
     return src([
         'src/css/style.min.css',
         'src/js/script.min.js',
-        'src/**/*.html'
+        'src/pages/**/*.html',
     ], {base: 'src'})
     .pipe(dest('dist'))
 }
@@ -90,8 +104,9 @@ exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.img = img;
+exports.nunjucks = nunjucks;
 
 exports.cleanDist = cleanDist; 
 
 exports.build = series(cleanDist, building);
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(styles, scripts, nunjucks, browsersync, watching);
