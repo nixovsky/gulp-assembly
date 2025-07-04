@@ -1,29 +1,39 @@
 {
   "name": "nixovsky",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development gulp --gulpfile gulpfile.esm.js",
+    "build": "cross-env NODE_ENV=production gulp --gulpfile gulpfile.esm.js build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.10",
-    "@babel/preset-env": "^7.22.10",
-    "browser-sync": "^2.29.3",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "browser-sync": "^3.0.4",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.25.5",
+    "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
-    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-html-prettify": "^0.0.1",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-if": "^3.0.0",
     "gulp-nunjucks-render": "^2.2.3",
+    "gulp-prettier": "^6.0.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify-es": "^3.0.0",
-    "imagemin-jpeg-recompress": "^7.1.0",
-    "sass": "^1.65.1"
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.89.2",
+    "signale": "^1.4.0",
+    "vinyl-source-stream": "^2.0.0",
+    "vite": "^7.0.0"
   }
 }

@@ -1,0 +1,171 @@
+@use "fonts" as *;
+@use "image" as image;
+
+/* ========== Variables ========== */
+
+$mainColor: #000000;
+$secondaryColor: #FFFFFF;
+$accentColor: #FF0000;
+
+
+/* ========== Reset and base styles ==========  */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	font-family: 'Geologica'; /* main font */
+	font-size: 18rem;
+	font-weight: 400;
+  color: $mainColor;
+}
+
+/* ========== Links ========== */
+
+a, a:link, a:visited  {
+  text-decoration: none;
+	transition: .2s ease;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* ========== Common ========== */
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+	font-weight: inherit;
+}
+
+/* ========== Site text style ========== */
+
+.h1-title{
+  font-size: 50rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.h2-title{
+  font-size: 50rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+p, span, label, a{
+  font-size: 24rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+ul, ul li {
+  font-size: 24rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* ========== Form ========== */
+
+input, textarea, button, select {
+	font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+/* ========== Rubber style ========== */
+
+html {
+  box-sizing: border-box;
+  font-size: calc(1vw / 19.2);
+  scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 576px) {
+  html {font-size: calc(1vw / 5.76)}
+}
+
+/* ========== Default block style ========== */
+
+.page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section{
+  overflow: hidden;
+}
+
+.container{
+  max-width: 1920rem;
+  margin: 0 auto;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25rem 40rem;
+}
+
+.header{
+
+}
+
+.footer{
+
+}

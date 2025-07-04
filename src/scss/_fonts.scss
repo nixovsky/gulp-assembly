@@ -1,0 +1,17 @@
+// Миксин для генерации @font-face
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: '#{$font-name}';
+    src: url('../fonts/#{$file-name}.ttf') format('ttf'),
+         url('../fonts/#{$file-name}.woff2') format('woff2'),
+         url('../fonts/#{$file-name}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+// Автоматически генерируем @font-face для всех шрифтов
+@include font-face('Geologica', 'Geologica-Light', 300);
+@include font-face('Geologica', 'Geologica-Regular', 400);
+@include font-face('Geologica', 'Geologica-Medium', 500);

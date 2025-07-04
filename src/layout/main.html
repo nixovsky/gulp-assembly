@@ -1,7 +1,7 @@
-{% set company = "My random company" %}
-	{% if not(title) %}
-{% set title = "Default title" %}
+{% if not(title) %}
+	{% set title = "Default title" %}
 {% endif %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,11 +10,20 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="stylesheet" href="../css/swiper-bundle.min.css">
+	<link rel="stylesheet" href="../css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body>
-	{% include "src/components/header.html" %}
-	{% block content %}{% endblock %}
-    {% include "src/components/footer.html" %}
+	<div class="page">
+		{% include "src/components/header.html" %}
+		<main class="main">
+			{% block content %}{% endblock %}
+		</main>
+		{% include "src/components/footer.html" %}
+	</div>
+
+	{% include "src/components/scripts.html" %}
 </body>
 </html>
