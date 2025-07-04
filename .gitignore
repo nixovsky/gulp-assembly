@@ -1,11 +1,67 @@
-#dep
-/dist
-
-/node_modules
-
-#msc
+# Файлы редактора/IDE
 .DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Логи и временные файлы
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+*.tmp
+
+# Зависимости
+node_modules/
+bower_components/
+.jpm/
+.pnp/
+.pnp.js
+
+# Сборка и выходные файлы
+dist/
+build/
+out/
+.next/
+.svelte-kit/
+.turbo/
+.cache/
+script.bundle.js
+style.min.css
+*.map
+
+# Системные файлы
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Файлы окружения
+.env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.development
+.env.test
+.env.production
+.env*.local
+
+# Пакетные менеджеры
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Документация
+docs/_build/
+
+# Тестовые покрытия
+coverage/
+.nyc_output/
+
+# Sass/SCSS
+.sass-cache/
+*.css.map
+
+# Другое
+*.bak
+*.backup
